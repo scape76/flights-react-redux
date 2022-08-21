@@ -4,7 +4,6 @@ import { connect } from "react-redux/es/exports";
 import { sortedFlightsListSelector } from "../flight/flight.selectors";
 
 const FlightDeparture = ({ sortedFlightsList }) => {
-  console.log(sortedFlightsList);
   return (
     <div className="departure">
       <h1 className="departure__title">Departure</h1>
@@ -18,17 +17,16 @@ const FlightDeparture = ({ sortedFlightsList }) => {
           </tr>
         </thead>
         <tbody>
-          {sortedFlightsList === []
-            ? null
-            : sortedFlightsList.map((flight) => (
-                <DepartureInfo
-                  timezone={flight.departure.timezone}
-                  estimatedTime={flight.departure.estimated}
-                  scheduledTime={flight.departure.scheduled}
-                  airport={flight.arrival.airport}
-                  key={flight.flight.number}
-                />
-              ))}
+          {sortedFlightsList?.length > 0 &&
+            sortedFlightsList.map((flight) => (
+              <DepartureInfo
+                timezone={flight.departure.timezone}
+                estimatedTime={flight.departure.estimated}
+                scheduledTime={flight.departure.scheduled}
+                airport={flight.arrival.airport}
+                key={flight.flight.number}
+              />
+            ))}
         </tbody>
       </table>
     </div>
