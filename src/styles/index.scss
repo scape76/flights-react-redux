@@ -1,0 +1,16 @@
+@import "./input-section";
+@import "./flight-info.scss";
+@import "https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&family=Poppins:wght@400;700&display=swap";
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Poppins";
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #adf1ff;
+}
