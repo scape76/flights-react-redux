@@ -17,7 +17,7 @@ const FlightDeparture = ({ sortedFlightsList }) => {
           </tr>
         </thead>
         <tbody>
-          {sortedFlightsList?.length > 0 &&
+          {!!sortedFlightsList?.length > 0 &&
             sortedFlightsList.map((flight) => (
               <DepartureInfo
                 timezone={flight.departure.timezone}

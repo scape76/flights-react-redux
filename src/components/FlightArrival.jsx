@@ -17,7 +17,7 @@ const FlightArrival = ({ sortedFlightsList }) => {
           </tr>
         </thead>
         <tbody>
-          {sortedFlightsList?.length > 0 &&
+          {!!sortedFlightsList?.length &&
             sortedFlightsList.map((flight) => (
               <ArrivalInfo
                 timezone={flight.arrival.timezone}
