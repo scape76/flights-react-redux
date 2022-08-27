@@ -1,9 +1,10 @@
-import { loadFlights, error } from "./flight.actions";
+import { loadFlights, error, loadingState } from "./flight.actions";
 
 const initialState = {
   flightsList: [],
-  sortedFlightsList: [],
+  sortedFlightsList: undefined,
   isError: false,
+  isLoading: false,
 };
 
 const sortFlights = (flightsList, city) =>
@@ -24,12 +25,24 @@ const flightReducer = (state = initialState, action) => {
           action.payload.flights,
           action.payload.city
         ),
+        isLoading: false,
       };
     }
     case error: {
       return {
         ...state,
         isError: true,
+        sortedFlightsList: undefined,
+        isLoading: false,
+      };
+    }
+
+    case loadingState: {
+      return {
+        ...state,
+        isError: false,
+        sortedFlightsList: undefined,
+        isLoading: true,
       };
     }
   }

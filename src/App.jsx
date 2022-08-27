@@ -1,14 +1,12 @@
 import React from "react";
 import { Provider } from "react-redux";
-import Flight from "./components/Flight";
-import FlightInput from "./components/FlightInput";
+import FlightApp from "./components/FlightApp";
 import store from "./storage";
 
 const App = () => {
   return (
     <Provider store={store}>
-      <FlightInput />
-      <Flight />
+      <FlightApp />
     </Provider>
   );
 };

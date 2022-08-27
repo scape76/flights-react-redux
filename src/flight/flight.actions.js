@@ -2,6 +2,7 @@ import { fetchFlights } from "../flightGateway";
 
 export const loadFlights = "Flights/load";
 export const error = "Flights/error";
+export const loadingState = "Flight/loading";
 
 export const flightsLoader = (flights, city) => {
   return {
@@ -13,8 +14,15 @@ export const flightsLoader = (flights, city) => {
   };
 };
 
+export const flightsLoadingState = () => {
+  return {
+    type: loadingState,
+  };
+};
+
 export const getFlights = (city) => {
   const thunkAction = function (dispatch) {
+    dispatch(flightsLoadingState());
     fetchFlights().then((result) => dispatch(flightsLoader(result.data, city)));
   };
 
