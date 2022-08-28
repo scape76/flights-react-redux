@@ -7,10 +7,14 @@ const initialState = {
   isLoading: false,
 };
 
-const sortFlights = (flightsList, city) =>
-  flightsList.filter((flight) =>
-    flight.departure.timezone.toLowerCase().includes(city.toLowerCase())
-  );
+const sortFlights = (flightsList, city) => {
+  return flightsList.filter((flight) => {
+    if (flight.departure.timezone === null) {
+      return false;
+    }
+    flight.departure.timezone.toLowerCase().includes(city.toLowerCase());
+  });
+};
 
 const flightReducer = (state = initialState, action) => {
   switch (action.type) {
