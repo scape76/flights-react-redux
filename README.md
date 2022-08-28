@@ -1,3 +1,5 @@
+Unfotunately, had some troubles with that API (is keeps sending a couple of the flights), so I decided to look for a new API (gonna rewrite the functionality completely)
+
 To start: 
 1. Clone the repo
 2. Install LTS <a href="https://nodejs.org/en/">Nodejs</a>
