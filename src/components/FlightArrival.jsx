@@ -18,13 +18,13 @@ const FlightArrival = ({ sortedFlightsList }) => {
         </thead>
         <tbody>
           {!!sortedFlightsList?.length &&
-            sortedFlightsList.map((flight) => (
+            sortedFlightsList.map((flight, indx) => (
               <ArrivalInfo
                 timezone={flight.arrival.timezone}
                 estimatedTime={flight.arrival.estimated}
                 scheduledTime={flight.arrival.scheduled}
                 airport={flight.arrival.airport}
-                key={flight.flight.number + flight.flight.iata}
+                key={`arrival_${indx}`}
               />
             ))}
         </tbody>
