@@ -24,7 +24,7 @@ const FlightArrival = ({ sortedFlightsList }) => {
                 estimatedTime={flight.arrival.estimated}
                 scheduledTime={flight.arrival.scheduled}
                 airport={flight.arrival.airport}
-                key={flight.flight.number}
+                key={flight.flight.number + flight.flight.iata}
               />
             ))}
         </tbody>

@@ -4,6 +4,10 @@ import { connect } from "react-redux/es/exports";
 import { sortedFlightsListSelector } from "../flight/flight.selectors";
 
 const FlightDeparture = ({ sortedFlightsList }) => {
+  // let newSortedFlightsList;
+  // if (Boolean(sortedFlightsList) && sortedFlightsList?.length > 0) {
+  //   newSortedFlightsList =
+  // }
   return (
     <div className="departure">
       <h1 className="departure__title">Departure</h1>
@@ -24,7 +28,7 @@ const FlightDeparture = ({ sortedFlightsList }) => {
                 estimatedTime={flight.departure.estimated}
                 scheduledTime={flight.departure.scheduled}
                 airport={flight.arrival.airport}
-                key={flight.flight.number}
+                key={flight.flight.number + flight.flight.icao}
               />
             ))}
         </tbody>

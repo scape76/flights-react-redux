@@ -8,12 +8,14 @@ const initialState = {
 };
 
 const sortFlights = (flightsList, city) => {
-  return flightsList.filter((flight) => {
+  console.log(flightsList, city);
+  const sortedFlights = flightsList.filter((flight) => {
     if (flight.departure.timezone === null) {
       return false;
     }
-    flight.departure.timezone.toLowerCase().includes(city.toLowerCase());
+    return flight.departure.timezone.toLowerCase().includes(city.toLowerCase());
   });
+  return sortedFlights;
 };
 
 const flightReducer = (state = initialState, action) => {
