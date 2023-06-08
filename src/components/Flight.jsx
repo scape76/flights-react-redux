@@ -8,22 +8,22 @@ import {
 } from "../flight/flight.selectors";
 
 const Flight = ({ sortedFlightsList, isError }) => {
-  const flight =
-    sortedFlightsList?.length === 0 ? (
-      <h1 className="finding-flight-error">
-        {" "}
-        Sorry, couldn't find a flight with that city name &#128531;
-      </h1>
-    ) : (
-      <>
-        <FlightDeparture />
-        <FlightArrival />
-      </>
-    );
-  console.log();
+  if (isError) {
+    return <div>Sorry, some error occured</div>;
+  }
+
   return (
     <div className="flight">
-      {isError ? <h1>&#11093; Please, enter real city</h1> : flight}
+      {sortedFlightsList?.length === 0 ? (
+        <h1 className="finding-flight-error">
+          Couldn't find a flight with that city name &#128531;
+        </h1>
+      ) : (
+        <>
+          <FlightDeparture />
+          <FlightArrival />
+        </>
+      )}
     </div>
   );
 };

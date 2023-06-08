@@ -27,10 +27,12 @@ $main-color: #27d3f5;
 .departure,
 .arrival {
   text-align: center;
-  width: 530px;
+  max-width: 530px;
+  width: 100%;
 }
 
 .finding-flight-error {
+  text-align: center;
   margin-top: 50px;
 }
 
@@ -51,5 +53,13 @@ $main-color: #27d3f5;
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .flight {
+    align-items: center;
+    flex-direction: column;
+    gap: 10rem;
   }
 }

@@ -5,15 +5,12 @@ import { connect } from "react-redux";
 import { flightsLoadingStateSelector } from "../flight/flight.selectors";
 
 const FlightApp = ({ isLoading }) => {
-  const flightDescription = isLoading ? (
-    <div className="loader"></div>
-  ) : (
+  return (
     <>
       <FlightInput />
-      <Flight />
+      {isLoading ? <div className="loader"></div> : <Flight />}
     </>
   );
-  return flightDescription;
 };
 
 const mapState = (state) => {
